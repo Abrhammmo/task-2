@@ -110,37 +110,36 @@ Learned about Kali Linux, a Debian-based Linux distribution designed for penetra
 
 ### 14. Kali Linux Overview
 
-Explored Kali Linux, a Debian-based distribution designed for penetration testing, digital forensics, and security auditing. Learned about its command-line environment, preinstalled security tools, and role in building a cybersecurity lab.
+Explored Kali Linux, a Debian-based operating system designed for penetration testing, digital forensics, and security auditing. Learned about its desktop and command-line environments, preinstalled cybersecurity tools, and how it can be used in a virtual machine to build a controlled environment for learning security testing. Also explored the importance of using these tools only on systems for which permission has been granted.
 
 ### 15. Sudo Overview
 
-Learned how `sudo` allows authorized users to execute commands with elevated privileges. Understood why administrative access is needed for certain system operations and why elevated privileges should be used carefully.
+Learned how `sudo` (superuser do) allows authorized users to execute commands with elevated privileges without necessarily logging in as the root user. Understood why some tasks, such as installing software or modifying system configuration, require administrative permissions. Also learned the importance of checking commands before running them with `sudo`, since elevated access can affect critical system files and settings.
 
 ### 16. Navigating the File System
 
-Practiced navigating the Linux directory structure using commands such as `pwd`, `ls`, and `cd`. Explored important directories, including `/home`, `/etc`, `/var`, `/tmp`, and `/root`, and learned the difference between absolute and relative paths.
+Learned how to navigate the Linux directory structure through the terminal. Practiced commands such as `pwd` to display the current directory, `ls` to list files and directories, and `cd` to move between locations. Explored important directories, including `/home` for user files, `/etc` for system configuration, `/var` for changing data and logs, `/tmp` for temporary files, and `/root` for the root user's home directory. Also studied the difference between absolute and relative paths.
 
 ### 17. Users and Privileges
 
-Learned how Linux organizes users and groups and controls access through file permissions. Studied read (`r`), write (`w`), and execute (`x`) permissions for the owner, group, and others. Reviewed commands such as `whoami`, `id`, `groups`, `chmod`, and `chown`.
+Explored how Linux uses users and groups to control access to files, directories, and system resources. Learned the three permission categories: owner, group, and others, alongside read (`r`), write (`w`), and execute (`x`) permissions. Reviewed commands such as `whoami` to identify the current user, `id` to display user and group IDs, `groups` to list group memberships, `chmod` to change permissions, and `chown` to change ownership. These concepts are important for understanding Linux security and preventing unauthorized access.
 
 ### 18. Common Network Commands
 
-Explored Linux networking commands for checking connectivity and inspecting network configuration. Reviewed `ip`, `ping`, `ss`, and `ip route` to examine network interfaces, test connectivity, identify listening ports, and view routing information.
+Learned how to use Linux networking commands to inspect network settings and troubleshoot connectivity problems. Explored `ip addr` for viewing network interfaces and IP addresses, `ip route` for examining routing information, `ping` for testing network reachability, and `ss` for inspecting network connections and listening ports. Understood how these commands help identify network configuration issues and provide useful information during authorized security assessments.
 
 ### 19. Viewing, Creating, and Editing Files
 
-Learned how to manage files and directories from the terminal. Explored commands such as `cat`, `less`, `touch`, `mkdir`, `cp`, `mv`, and `rm`, along with the Nano text editor for creating and modifying files.
+Practiced managing files and directories directly from the Linux terminal. Learned how `cat` displays file contents, `less` allows files to be viewed page by page, and `touch` creates empty files or updates timestamps. Explored `mkdir` for creating directories, `cp` for copying files, `mv` for moving or renaming files, and `rm` for removing files. Also reviewed using the Nano text editor to create and edit configuration files, notes, and scripts.
 
 ### 20. Starting and Stopping Services
 
-Learned how Linux services operate in the background and how to manage them using `systemctl`. Explored checking service status, starting and stopping services, restarting them, and configuring services to launch automatically at boot.
+Learned that Linux services are background processes that provide functions such as networking, time synchronization, and web hosting. Explored `systemctl` for managing services, including checking their status, starting or stopping them, and restarting them when necessary. Also learned the difference between starting a service temporarily and enabling it to launch automatically at boot. Understanding service management helps with system administration and identifying unnecessary services that could increase a system's attack surface.
 
 ### 21. Installing and Updating Tools
 
-Studied package management in Kali Linux using APT. Reviewed commands such as `sudo apt update`, `sudo apt upgrade`, and `sudo apt install` to refresh package lists, upgrade installed software, and install new tools.
+Explored the APT package manager used by Kali Linux to install, update, and remove software. Learned that `sudo apt update` refreshes the local package lists, while `sudo apt upgrade` upgrades installed packages when updates are available. Reviewed `sudo apt install` for installing tools and `sudo apt remove` for removing packages. Understood the importance of keeping the operating system and security tools updated to obtain bug fixes, security patches, and improved functionality.
 
 ### 22. Bash Scripting
 
-Explored Bash scripting as a way to automate repetitive tasks in Linux. Learned the basics of script structure, variables, command execution, user input, and executable permissions, providing a foundation for automating system administration and cybersecurity tasks.
-
+Introduced Bash scripting as a way to combine Linux commands into reusable scripts and automate repetitive tasks. Learned about creating a script file, using the shebang `#!/bin/bash` to specify the interpreter, defining variables, displaying output with `echo`, and accepting user input with `read`. Also explored conditional statements, loops, and executable permissions, which form the foundation for building more useful automation scripts. In cybersecurity, Bash can help automate routine system checks, organize command output, and perform authorized administrative tasks.
