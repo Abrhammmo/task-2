@@ -105,6 +105,42 @@ Learned about Kali Linux, a Debian-based Linux distribution designed for penetra
 
 * Began preparing a Kali Linux environment for future hands-on security exercises.
 
+---
+## Day 2 
 
-**Next step:** Practice the networking concepts using simple commands and packet analysis, then begin exploring Kali Linux tools in an authorized lab environment.
+### 14. Kali Linux Overview
+
+Explored Kali Linux, a Debian-based distribution designed for penetration testing, digital forensics, and security auditing. Learned about its command-line environment, preinstalled security tools, and role in building a cybersecurity lab.
+
+### 15. Sudo Overview
+
+Learned how `sudo` allows authorized users to execute commands with elevated privileges. Understood why administrative access is needed for certain system operations and why elevated privileges should be used carefully.
+
+### 16. Navigating the File System
+
+Practiced navigating the Linux directory structure using commands such as `pwd`, `ls`, and `cd`. Explored important directories, including `/home`, `/etc`, `/var`, `/tmp`, and `/root`, and learned the difference between absolute and relative paths.
+
+### 17. Users and Privileges
+
+Learned how Linux organizes users and groups and controls access through file permissions. Studied read (`r`), write (`w`), and execute (`x`) permissions for the owner, group, and others. Reviewed commands such as `whoami`, `id`, `groups`, `chmod`, and `chown`.
+
+### 18. Common Network Commands
+
+Explored Linux networking commands for checking connectivity and inspecting network configuration. Reviewed `ip`, `ping`, `ss`, and `ip route` to examine network interfaces, test connectivity, identify listening ports, and view routing information.
+
+### 19. Viewing, Creating, and Editing Files
+
+Learned how to manage files and directories from the terminal. Explored commands such as `cat`, `less`, `touch`, `mkdir`, `cp`, `mv`, and `rm`, along with the Nano text editor for creating and modifying files.
+
+### 20. Starting and Stopping Services
+
+Learned how Linux services operate in the background and how to manage them using `systemctl`. Explored checking service status, starting and stopping services, restarting them, and configuring services to launch automatically at boot.
+
+### 21. Installing and Updating Tools
+
+Studied package management in Kali Linux using APT. Reviewed commands such as `sudo apt update`, `sudo apt upgrade`, and `sudo apt install` to refresh package lists, upgrade installed software, and install new tools.
+
+### 22. Bash Scripting
+
+Explored Bash scripting as a way to automate repetitive tasks in Linux. Learned the basics of script structure, variables, command execution, user input, and executable permissions, providing a foundation for automating system administration and cybersecurity tasks.
 
