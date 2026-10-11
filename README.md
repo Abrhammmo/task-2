@@ -143,3 +143,53 @@ Explored the APT package manager used by Kali Linux to install, update, and remo
 ### 22. Bash Scripting
 
 Introduced Bash scripting as a way to combine Linux commands into reusable scripts and automate repetitive tasks. Learned about creating a script file, using the shebang `#!/bin/bash` to specify the interpreter, defining variables, displaying output with `echo`, and accepting user input with `read`. Also explored conditional statements, loops, and executable permissions, which form the foundation for building more useful automation scripts. In cybersecurity, Bash can help automate routine system checks, organize command output, and perform authorized administrative tasks.
+
+### 23. Introduction to Python
+
+Learned the fundamentals of Python, a high-level, general-purpose programming language widely used in automation, data analysis, and cybersecurity. Explored how Python code is written and executed, basic syntax rules, indentation, and the use of the Python interpreter to test commands and run programs. Also learned why Python is useful for writing scripts that automate repetitive tasks and support security testing.
+
+### 24. Strings
+
+Studied strings as sequences of characters used to represent text in Python. Learned how to create strings using single or double quotes, combine strings, access individual characters, and use indexing and slicing. Explored common string methods such as `lower()`, `upper()`, `strip()`, `replace()`, and `split()` for manipulating and processing text. These operations are useful when handling filenames, command output, logs, and other textual data.
+
+### 25. Math
+
+Explored Python's arithmetic operations for performing calculations and processing numerical values. Practiced addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`), floor division (`//`), modulo (`%`), and exponentiation (`**`). Also learned about operator precedence and how parentheses can control the order of calculations. These concepts are useful for calculations, numeric comparisons, and processing data in scripts.
+
+### 26. Variables and Methods
+
+Learned how variables store references to values that can be used and modified throughout a program. Explored common data types such as integers, floating-point numbers, strings, and Booleans. Also studied methods, which are functions associated with particular objects and are called using dot notation, such as `"hello".upper()`. Understood how variables and methods make programs easier to organize, reuse, and maintain.
+
+### 27. Functions
+
+Learned how functions group reusable instructions into named blocks of code. Explored defining functions with `def`, passing information through parameters and arguments, and returning results using `return`. Understood how functions reduce repeated code, improve readability, and divide larger programs into smaller tasks. Functions are especially useful when building reusable automation scripts and security utilities.
+
+### 28. Boolean Expressions and Relational Operators
+
+Studied Boolean values, `True` and `False`, and how expressions evaluate to one of these results. Explored relational operators such as `==`, `!=`, `>`, `<`, `>=`, and `<=` for comparing values. Also reviewed logical operators such as `and`, `or`, and `not`, which combine or reverse Boolean conditions. These concepts are essential for making decisions in programs and checking whether particular conditions are satisfied.
+
+### 29. Conditional Statements
+
+Learned how conditional statements control program execution based on whether a condition is true or false. Explored `if`, `elif`, and `else` to handle different possible outcomes. Understood how indentation defines the blocks of code associated with each condition. Conditional statements can be used in scripts to validate input, check file existence, evaluate command results, and respond to different system conditions.
+
+### 30. Lists
+
+Studied lists as ordered, mutable collections that can store multiple items in a single variable. Learned how to create lists, access elements using indexes, extract sections using slicing, modify values, and add or remove items. Explored common methods such as `append()`, `insert()`, `remove()`, and `pop()`. Lists are useful for storing collections of filenames, IP addresses, scan results, or other information processed by a Python script.
+
+### 31. Tuples
+
+Learned about tuples as ordered collections that cannot be modified after creation. Explored creating tuples, accessing their elements using indexing, and unpacking their values into separate variables. Compared tuples with lists, noting that lists are mutable while tuples are immutable. Tuples are useful for representing fixed groups of related values that should remain unchanged during program execution.
+
+### 32. Looping
+
+Explored loops as a way to execute a block of code repeatedly without writing the same instructions multiple times. Learned how `for` loops iterate over sequences such as strings, lists, and tuples, while `while` loops continue executing as long as a condition remains true. Also reviewed `break` for exiting a loop and `continue` for skipping to the next iteration. Loops are useful for processing multiple files, examining lists of network addresses, and automating repetitive tasks in cybersecurity scripts.
+
+## Key Takeaways
+
+* Learned Python's basic syntax, variables, strings, and arithmetic operations.
+* Practiced organizing reusable code with functions and working with different data types.
+* Understood how Boolean expressions and conditional statements control program flow.
+* Explored lists, tuples, and loops for storing, accessing, and processing collections of data.
+* Built a foundation for using Python in Linux automation and authorized cybersecurity testing.
+
+
