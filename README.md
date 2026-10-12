@@ -191,6 +191,8 @@ Explored loops as a way to execute a block of code repeatedly without writing th
 * Understood how Boolean expressions and conditional statements control program flow.
 * Explored lists, tuples, and loops for storing, accessing, and processing collections of data.
 * Built a foundation for using Python in Linux automation and authorized cybersecurity testing.
+
+  
   ---
 
 ### 33. Advanced Strings
