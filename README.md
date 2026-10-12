@@ -191,5 +191,148 @@ Explored loops as a way to execute a block of code repeatedly without writing th
 * Understood how Boolean expressions and conditional statements control program flow.
 * Explored lists, tuples, and loops for storing, accessing, and processing collections of data.
 * Built a foundation for using Python in Linux automation and authorized cybersecurity testing.
+  ---
+
+### 33. Advanced Strings
+
+Explored advanced string manipulation in Python and how text can be processed, formatted, searched, and transformed. Learned how indexing and slicing extract specific portions of a string, while string methods such as `strip()`, `replace()`, `split()`, `join()`, `find()`, and `lower()` help clean and analyze text. Also explored formatted strings (f-strings), which make it easier to combine variables and text in readable output.
+
+These techniques are particularly useful in cybersecurity when processing log files, extracting information from command output, cleaning collected data, and formatting the results of automated security tools.
+
+### 34. Dictionaries
+
+Learned how Python dictionaries store information as key-value pairs, allowing data to be organized and retrieved using meaningful keys rather than numerical indexes. Practiced creating dictionaries, accessing values, adding new entries, updating existing data, and removing items.
+
+Explored useful dictionary methods such as `keys()`, `values()`, `items()`, and `get()`. Also learned how dictionaries can be combined with loops to process multiple records efficiently.
+
+In cybersecurity scripts, dictionaries can organize information about network hosts, open ports, service names, scan results, and other structured data.
+
+### 35. Importing Modules
+
+Studied how Python modules allow developers to reuse existing code instead of implementing every feature from scratch. Learned the difference between importing an entire module with `import` and importing specific functions or objects using `from ... import ...`.
+
+Explored the role of Python's standard library and how modules provide functionality for operating-system interaction, file management, networking, and other tasks. Examples include `os` for operating-system operations, `sys` for interpreter-related functionality, and `socket` for network communication.
+
+Understanding modules makes Python programs more organized, reusable, and maintainable. It also provides access to essential building blocks for developing automation scripts and cybersecurity tools.
+
+### 36. Sockets
+
+Learned that sockets are communication endpoints that allow programs to exchange data over a network. Explored how Python's `socket` module enables applications to communicate with other devices or services using protocols such as TCP and UDP.
+
+Studied the basic networking concepts involved in socket communication, including IP addresses, port numbers, client-server communication, and connection establishment. With TCP, a client can attempt to connect to a listening server, exchange data, and close the connection when communication is complete.
+
+Sockets are fundamental to understanding how network applications work. They are also the foundation for building tools such as port scanners, simple clients, and network diagnostic utilities.
+
+### 37. Building a Port Scanner
+
+Explored how to build a basic TCP port scanner using Python's `socket` module. Learned how a program can attempt to connect to selected ports on a target host to determine which ports appear accessible.
+
+Studied how IP addresses identify the target, port numbers identify particular network services, and connection timeouts help the scanner avoid waiting indefinitely. Also explored how loops can automate checks across a range of ports and how conditional statements can report the results.
+
+An accessible port may indicate a service worth investigating, but it does not automatically mean the service is vulnerable. Results must be interpreted carefully because firewalls, network conditions, and service configurations can affect scan outcomes.
+
+Port scanning should only be conducted against systems you own or are explicitly authorized to assess.
+
+### 38. User Input
+
+Learned how Python programs can accept information interactively using the `input()` function. Explored storing user responses in variables and using those values to control how a program behaves.
+
+Studied how input is initially received as a string and may need conversion using functions such as `int()` or `float()` before mathematical operations can be performed. Also reviewed the importance of validating user input to avoid unexpected errors and incorrect results.
+
+Interactive input is useful for scripts that allow users to specify target addresses, port ranges, filenames, configuration options, or other parameters. Proper validation is particularly important when user-provided values influence system or network operations.
+
+### 39. Reading and Writing Files
+
+Studied how Python can read information from existing files and write results to new or existing files. Learned how `open()` provides access to files and how methods such as `read()`, `readline()`, and `readlines()` retrieve their contents.
+
+Explored file modes, including `r` for reading, `w` for writing, and `a` for appending. Understood that writing with `w` can overwrite existing content, while `a` adds content to the end of a file. Also learned the benefits of using `with open()` to ensure files are properly closed after operations finish.
+
+File handling is valuable in cybersecurity because scripts often need to read configuration data, process system logs, save scan results, and generate reports. It also enables results to be preserved and reviewed after a script has completed.
+
+### 40. Classes and Objects
+
+Introduced object-oriented programming (OOP), an approach that organizes programs around objects containing data and behavior. Learned that a class acts as a blueprint defining the attributes and methods that its objects can have, while an object is an individual instance of that class.
+
+Explored the `__init__()` method for initializing objects, `self` for referring to the current instance, attributes for storing information, and methods for defining behavior.
+
+For example, a Python class representing a network host could store its IP address, hostname, and discovered ports, with methods to display or process that information.
+
+OOP helps organize larger programs into manageable components, improves code reuse, and makes it easier to maintain more complex cybersecurity utilities.
+
+### 41. Building a Shoe Budget Tool
+
+Applied Python fundamentals by developing a simple budgeting program related to shoe purchases. This exercise demonstrates how individual programming concepts can be combined to solve a practical problem.
+
+The program can use variables to store prices and budgets, accept user input, perform arithmetic calculations, and apply conditional statements to determine whether a purchase fits within the available budget. Formatted strings can then display the results clearly.
+
+This type of exercise strengthens problem-solving skills by turning a real-world requirement into a sequence of logical programming steps. The same principles can be adapted to expense trackers, equipment budgets, and other small automation projects.
+
+### 42. The Five Stages of Ethical Hacking
+
+Studied a traditional five-stage model used to explain the progression of an ethical hacking engagement.
+
+1. **Reconnaissance:** Gather information about the target, including its public presence, domain details, and potential attack surface.
+2. **Scanning:** Identify reachable hosts, exposed ports, running services, and potential security weaknesses.
+3. **Gaining Access:** Validate whether identified vulnerabilities can be exploited within the authorized testing scope.
+4. **Maintaining Access:** In a controlled assessment, evaluate the potential impact of persistent access and whether security controls can detect or prevent it.
+5. **Covering Tracks:** Study how attackers may attempt to conceal their activities and how defenders can detect suspicious changes, missing logs, or other signs of tampering.
+
+These stages help explain how an attacker might approach a system and how security professionals can assess its defenses. In legitimate testing, all activities must be authorized, documented, and limited to the agreed scope. Evidence and logs should be preserved rather than destroyed.
+
+This is a traditional teaching model; actual penetration-testing methodologies may use different phases and terminology.
+
+### 43. Passive Reconnaissance Overview
+
+Learned that passive reconnaissance involves gathering information about a target from existing sources without actively probing its systems. Sources can include public websites, search engines, published documents, domain registration information, public repositories, and other open-source intelligence (OSINT) resources.
+
+Explored how publicly available information can reveal details about an organization's online presence, technology references, contact information, and potential external assets.
+
+Passive reconnaissance helps security professionals understand a target before conducting more direct testing. However, information being publicly accessible does not automatically make every use of it appropriate; privacy, applicable laws, and the engagement's scope still matter.
+
+### 44. Identifying Our Target
+
+Explored the importance of accurately identifying the organization, domain, or system that will be assessed before collecting information. Learned that similar domain names, subdomains, third-party services, and unrelated systems can easily cause confusion if the target is not clearly defined.
+
+Studied why establishing the authorized scope is essential. A scope should identify which assets may be examined, which activities are permitted, and which systems must remain untouched.
+
+Accurate target identification improves the reliability of reconnaissance and reduces the risk of unintentionally interacting with systems that do not belong to the intended organization. It is a foundational step in responsible security testing.
+
+### 45. Discovering Email Addresses
+
+Explored how email addresses associated with an organization can sometimes be identified through publicly available information. Reviewed the role of search engines, official websites, published documents, professional profiles, and other OSINT sources in locating publicly listed contact details.
+
+Learned that email addresses may reveal an organization's public contact structure and can help security teams understand potential exposure to phishing and other email-based threats.
+
+The information must be handled responsibly. Publicly available email addresses should not be used for unsolicited attacks, credential theft, or unauthorized account access. In a legitimate assessment, collection should follow the approved scope and respect privacy requirements.
+
+### 46. Breached Credentials – Part 1
+
+Introduced breached credentials and how account information can become exposed when an organization or online service experiences a data breach. Such information may include email addresses, usernames, password hashes, and, in some incidents, passwords stored in plaintext.
+
+Learned why exposed credentials represent a security risk, especially when users reuse the same password across multiple services. An attacker who obtains a password from one compromised service may attempt to use it against other accounts.
+
+Explored the importance of reputable breach-notification resources for checking potential exposure and understanding the limitations of breach data. A match may indicate that information was exposed in a known incident, but it does not necessarily prove that an account is currently compromised.
+
+Credential exposure checks should be performed only for accounts one owns or is authorized to assess.
+
+### 47. Breached Credentials – Part 2
+
+Continued studying the security implications of leaked credentials and how organizations and individuals can reduce the risk of account compromise.
+
+Learned about protective measures such as using unique passwords for every service, employing a reputable password manager, enabling multifactor authentication (MFA), and changing passwords known to have been exposed. Also recognized the value of monitoring account activity and reviewing security notifications for suspicious access.
+
+Understood that discovering an exposed credential does not grant permission to attempt logging in to the associated account. Appropriate responses include notifying the account owner or responsible security team, securing affected accounts, and following established incident-response procedures.
+
+This topic highlighted how credential security is not only a technical issue but also an important part of identity protection and overall cybersecurity awareness.
+
+## Key Takeaways
+
+* Developed stronger Python skills in advanced string manipulation, dictionaries, modules, file operations, and object-oriented programming.
+* Learned how sockets support network communication and how a basic TCP port scanner identifies potentially accessible services.
+* Applied programming concepts to a practical budgeting tool.
+* Studied the traditional stages of ethical hacking and the role of reconnaissance in understanding a target.
+* Explored passive OSINT techniques, target identification, and the responsible discovery of public contact information.
+* Learned how credential breaches occur, why password reuse is dangerous, and how MFA and unique passwords reduce account risk.
+* Reinforced the importance of authorization, scope definition, privacy, and responsible disclosure throughout security testing.
 
 
