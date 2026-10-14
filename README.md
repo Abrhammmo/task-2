@@ -338,3 +338,240 @@ This topic highlighted how credential security is not only a technical issue but
 * Reinforced the importance of authorization, scope definition, privacy, and responsible disclosure throughout security testing.
 
 
+### 48. Hunting Subdomains – Part 1
+
+Learned about subdomains and how they expand an organization's internet-facing attack surface. A subdomain is a prefix attached to a domain, such as `mail.example.com` or `dev.example.com`, and may point to a separate application, server, or service.
+
+Explored **Sublist3r**, a Python-based tool used to discover subdomains through supported search engines and other public sources. In Kali Linux, it can be installed using APT if the package is available in the configured repositories:
+
+```bash
+sudo apt update
+sudo apt install sublist3r
+```
+
+Also explored **crt.sh**, a web service that searches Certificate Transparency logs. These logs can reveal domain names and subdomains included in publicly logged TLS certificates.
+
+For example, searching for `%.tesla.com` on crt.sh can help identify certificate records associated with Tesla's domain.
+
+* Sublist3r: automated subdomain discovery.
+* crt.sh: searches publicly logged certificate records.
+* Objective: identify potential assets for an authorized assessment.
+
+Discovered subdomains should be verified before further testing. A domain appearing in a search result does not automatically mean it is active, vulnerable, or in scope.
+
+### 49. Hunting Subdomains – Part 2
+
+Continued exploring ways to discover and validate subdomains using public information and specialized tools. Learned how results from different sources can be combined to build a more complete inventory of an organization's externally visible assets.
+
+Subdomains may expose development environments, staging websites, APIs, and other services that are not linked directly from the main website. These assets can have different configurations and security requirements.
+
+The key lesson was to document discovered hostnames, verify whether they resolve, and establish whether they belong to the approved assessment scope before proceeding to scanning or enumeration.
+
+### 50. Identifying Website Technologies
+
+Learned how to identify the technologies used to build and operate a website, including its content management system, web server, programming language, JavaScript frameworks, and supporting libraries.
+
+Explored the following tools:
+
+* **Wappalyzer:** identifies technologies used by websites through detectable patterns and fingerprints.
+* **BuiltWith:** provides information about website technology stacks and associated services.
+* **WhatWeb:** a command-line website fingerprinting tool available for Linux that identifies web technologies through HTTP responses, headers, HTML, and other fingerprints.
+
+For example, WhatWeb can be run against an authorized target using:
+
+```bash
+whatweb https://example.com
+```
+
+These tools help establish the technology stack before vulnerability research. Identifying a technology does not prove that a particular vulnerability exists, so results should be verified against documentation and security advisories.
+
+### 51. Gathering Information with Burp Suite
+
+Explored **Burp Suite Community Edition**, a web application security testing tool used to inspect and analyze HTTP and HTTPS communication between a browser and a web application.
+
+Learned how Burp Suite's built-in proxy allows a tester to observe requests and responses, including URLs, headers, cookies, parameters, and returned content. This provides insight into how a website communicates with its server.
+
+The Community Edition provides useful manual testing capabilities, including traffic interception and inspection. It is not the same as the full commercial edition, so some automated scanning and advanced features may be unavailable.
+
+Burp Suite is useful for examining application behavior, understanding authentication flows, and identifying areas that may require further security testing.
+
+### 62. Scanning with Nessus – Part 1
+
+Introduced **Nessus**, a vulnerability assessment tool used to identify potential security weaknesses in hosts, network services, and software configurations.
+
+Learned how vulnerability scanners compare detected information against known vulnerabilities and security checks. Depending on the scan configuration and available access, Nessus may identify outdated software, missing patches, insecure configurations, and other potential issues.
+
+Nessus complements Nmap: Nmap helps discover hosts, ports, and services, while Nessus focuses on identifying potential vulnerabilities associated with those systems.
+
+### 63. Scanning with Nessus – Part 2
+
+Continued exploring Nessus scan results and how to interpret findings. Learned to review vulnerability descriptions, affected hosts, severity ratings, supporting evidence, and recommended remediation.
+
+Understood that scanner results should not be accepted blindly. Software version differences, backported patches, configuration details, and network restrictions can affect results, so important findings should be validated where possible.
+
+The goal is to prioritize risks based on severity, exploitability, exposure, and business impact, then recommend appropriate corrective actions.
+
+### 72. Buffer Overflows Explained
+
+Studied buffer overflows and how writing more data into a memory buffer than it can hold may corrupt adjacent memory. Depending on the application and its protections, this can cause a crash or potentially allow an attacker to influence program execution.
+
+Explored how vulnerable applications can be examined in a controlled lab to understand memory corruption and the role of debugging tools.
+
+Two relevant tools and resources are:
+
+* **Vulnserver:** a deliberately vulnerable Windows TCP server designed for practicing network-service exploitation and classic buffer overflow techniques in a lab.
+* **Immunity Debugger:** a Windows debugger historically used to inspect program execution, registers, memory, and crashes during exploit development exercises.
+
+These tools help learners observe what happens when malformed or oversized inputs reach a vulnerable program. They should be used with intentionally vulnerable software in an isolated lab, not against production systems.
+
+### 73. Spiking
+
+Explored spiking as an initial step in classic buffer overflow testing. The aim is to identify whether sending unusually large or unexpected inputs to a particular application command causes the program to crash.
+
+In a Vulnserver lab, this type of testing helps identify commands or input fields that may contain a memory-handling weakness. Immunity Debugger can then be used to inspect the program's state after a crash.
+
+A crash is an indication of a possible defect, not proof of reliable code execution. The results must be reproduced and analyzed to understand the underlying issue.
+
+### 74. Fuzzing
+
+Learned about fuzzing, a software testing technique that supplies a program with varied or unexpected inputs to discover crashes, errors, and potential security weaknesses.
+
+In a controlled Vulnserver exercise, fuzzing can help identify inputs that cause the service to behave unexpectedly. A debugger such as Immunity Debugger can help examine the resulting crash and determine whether memory corruption may have occurred.
+
+Fuzzing is useful for finding defects that ordinary test cases may miss. Each finding still requires investigation to determine its cause, reproducibility, and security impact.
+
+### 75. Finding the Offset
+
+Studied offsets in classic buffer overflow analysis. An offset represents the number of bytes between the beginning of an input and a particular location in memory that may be overwritten.
+
+Using an intentionally vulnerable program, the concept helps explain how input length relates to the location of saved control-flow information. Debugging tools can help verify whether the observed memory state matches expectations.
+
+Understanding offsets is important for analyzing the behavior of a vulnerable application and explaining why certain inputs affect program execution.
+
+### 76. Overwriting the EIP
+
+Learned about the Extended Instruction Pointer (EIP) in 32-bit x86 systems. EIP holds the address of the next instruction to execute, and corruption of saved control-flow information can cause a program to attempt execution at an unintended address.
+
+In a classic buffer overflow lab, Immunity Debugger can help illustrate how memory corruption affects registers and program execution.
+
+This topic demonstrates why memory-safety bugs can have serious consequences. Modern systems employ protections such as stack canaries, ASLR, and DEP/NX to make exploitation more difficult.
+
+### 77. Finding Bad Characters
+
+Explored bad characters in classic buffer overflow testing. These are byte values that may be changed, truncated, or interpreted specially as input passes through an application.
+
+In a vulnerable lab application, comparing supplied input with the data present in memory helps explain why certain bytes may not arrive unchanged. This matters when analyzing binary input handling and understanding unexpected behavior.
+
+Bad characters depend on the specific application and its input-processing path; there is no universal list that applies to every target. The broader lesson is the importance of correct input handling and memory-safe programming.
+
+### 78. Finding the Right Module
+
+Learned how loaded program modules can influence memory addresses and exploitation reliability in classic buffer overflow scenarios.
+
+Explored how module behavior, memory layout, and security protections affect whether a program's control flow can be influenced. Immunity Debugger can help inspect a vulnerable program's loaded components and execution state during a controlled analysis.
+
+This topic reinforces the importance of understanding the target's architecture and protections rather than assuming that a technique will work in every environment.
+
+### 79. Generating Shellcode and Gaining Root
+
+Studied shellcode as machine instructions designed to perform a particular action in an exploitation context. Learned how architecture, operating system, memory layout, and execution constraints affect whether a payload can function.
+
+The Vulnserver and debugger exercises provide a controlled environment for understanding the relationship between memory corruption and code execution. However, code execution and administrative access are separate concepts: a process running with ordinary privileges does not automatically become an administrator.
+
+The defensive objective is to understand the impact of memory corruption and reduce risk through secure coding, software updates, and appropriate operating-system protections.
+
+### 80. Python 3 and More
+
+Continued exploring Python 3 and its application to cybersecurity scripting and technical problem-solving. Reviewed how Python can be used to automate repetitive tasks, process data, work with network connections, and organize the results of security assessments.
+
+This section also provided an opportunity to connect earlier programming concepts, including variables, functions, loops, strings, files, modules, and sockets, with more advanced technical exercises.
+
+Python is useful for building small utilities, processing scan output, validating inputs, and developing test harnesses. Writing maintainable scripts requires clear structure, appropriate error handling, and careful management of user input and network activity.
+
+### 81. Capstone Introduction
+
+Reached the capstone portion of the course, which brings together concepts introduced throughout the earlier lessons. This section shifts from learning individual tools and techniques toward applying them in practical, scenario-based exercises.
+
+The emphasis is on following a structured workflow: understanding the target, gathering information, enumerating services, researching weaknesses, validating findings, and recording the results.
+
+A capstone exercise also helps identify areas that need further practice. It reinforces that successful security testing depends not only on knowing tools but also on interpreting evidence and explaining security risks clearly.
+
+### 82. Setting Up Blue
+
+Explored the setup of Blue, a deliberately vulnerable Windows lab environment commonly used to practice network enumeration and vulnerability assessment.
+
+Learned the importance of preparing the virtual machine, checking network connectivity, and ensuring that the target is accessible only within the intended lab environment. Proper isolation prevents an intentionally vulnerable system from exposing other devices to unnecessary risk.
+
+This preparation creates a controlled setting in which to examine Windows networking, service exposure, and the consequences of known security weaknesses.
+
+### 83. Blue Walkthrough
+
+Worked through the Blue lab scenario, applying previously learned concepts such as host discovery, port scanning, service enumeration, vulnerability research, and controlled validation.
+
+The exercise demonstrates how information gathered in earlier stages helps guide later decisions. Instead of selecting an exploit without context, the tester uses observed services and supporting evidence to determine whether a known weakness may be relevant to the target.
+
+The walkthrough also highlights the importance of understanding the impact of a successful compromise and identifying defensive measures, such as applying security updates, disabling unnecessary services, and restricting network exposure.
+
+### 84. Academy Setup
+
+Explored preparing the Academy lab environment for a practical security assessment. This involves ensuring that the vulnerable target is deployed correctly, that its networking is configured as intended, and that the tester can interact with it within the approved environment.
+
+The setup stage is important because problems with virtual networking, target configuration, or connectivity can interfere with later testing and lead to misleading conclusions.
+
+A properly configured lab makes the exercise repeatable and provides a safe environment for applying reconnaissance, enumeration, and vulnerability assessment techniques.
+
+### 85. Academy Walkthrough
+
+Applied the penetration-testing workflow to the Academy lab scenario. The process connects information gathering with service discovery, investigation of potential weaknesses, and controlled validation of findings.
+
+Learned how each stage contributes to the next: reconnaissance identifies possible assets, enumeration provides technical details, and vulnerability research helps determine which issues warrant investigation.
+
+The main lesson is to base testing decisions on evidence rather than assumptions and to record the observations that support each conclusion. A complete assessment should also identify relevant remediation measures.
+
+### 86. Dev Walkthrough
+
+Explored the Dev lab scenario, continuing to apply the techniques introduced throughout the course. The walkthrough provides an opportunity to practice identifying exposed services, understanding how an application is configured, and investigating potential weaknesses within a defined environment.
+
+The exercise reinforces the importance of correlating information from different sources. A service or application detail may seem harmless on its own, but when combined with other evidence, it can help explain a larger security issue.
+
+The key learning outcome is to follow a systematic process, validate findings carefully, and distinguish between confirmed weaknesses and possibilities that require further investigation.
+
+### 87. Butler Walkthrough
+
+Worked through the Butler lab scenario as another practical application of the course's penetration-testing concepts. This stage emphasizes applying reconnaissance, service enumeration, vulnerability analysis, and controlled testing to a specific target environment.
+
+Learned how a structured approach helps narrow down potential attack paths and avoid unnecessary trial and error. It also reinforces the importance of tracking the testing process so that findings can be reproduced and explained.
+
+The defensive perspective is equally important: identifying the underlying weakness helps determine how it can be corrected, monitored, or prevented in similar systems.
+
+### 88. Blackpearl Walkthrough
+
+Explored the Blackpearl lab scenario, continuing to build practical experience with the assessment workflow. The exercise reinforces the need to gather evidence, investigate exposed services, and use technical findings to guide further testing rather than relying on assumptions.
+
+The walkthrough also helps consolidate the relationship between reconnaissance, enumeration, vulnerability research, exploitation concepts, and documentation. Each stage contributes to a clearer understanding of the target's security posture.
+
+As with the other lab exercises, the ultimate goal is not simply to gain access but to understand why a weakness exists, what impact it may have, and what measures could reduce the risk.
+
+---
+
+## Key Takeaways
+
+By studying this course, I expanded my understanding of practical ethical hacking and the relationship between information gathering, vulnerability assessment, and controlled exploitation.
+
+* **Reconnaissance and OSINT:** Explored subdomain discovery, website technology identification, search operators, and publicly available information.
+* **Network and service enumeration:** Learned how Nmap and service-specific techniques help identify hosts, ports, and potentially exposed services.
+* **Web application assessment:** Explored Burp Suite and the investigation of HTTP/HTTPS services and application behavior.
+* **Vulnerability assessment:** Learned how Nessus, security advisories, and vulnerability databases support the identification and prioritization of security issues.
+* **Exploitation fundamentals:** Studied shells, payload types, manual exploitation, authentication attacks, and the distinction between gaining access and obtaining elevated privileges.
+* **Memory corruption:** Explored buffer overflows, fuzzing, offsets, EIP, bad characters, modules, and shellcode at a conceptual and lab-oriented level.
+* **Practical lab experience:** Applied or reviewed these concepts through deliberately vulnerable environments such as Kioptrix, Blue, Academy, Dev, Butler, and Blackpearl.
+* **Documentation and remediation:** Reinforced the importance of organized notes, evidence-based findings, risk assessment, and clear remediation recommendations.
+
+## Important Security Principles
+
+Throughout these exercises, the central principles are authorization, defined scope, safe lab isolation, and responsible handling of findings. Practical exploitation should be performed only in environments where permission has been granted. Vulnerability discovery should ultimately support stronger security, not unauthorized access.
+
+
+
+
+
